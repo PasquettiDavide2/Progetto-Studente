@@ -37,9 +37,52 @@ public class Studente {
         this.votifinali = new int [nmaterie];
     }
     
+    public String getNome (){
+        return this.nome;
+    }
     
+    public String getCognome (){
+        return this.cognome;
+    }
     
+    public int getAnno (){
+        return this.anno;
+    }
+     
+    public String getIndirizzo (){
+        return this.indirizzo;
+    }
+      
+    public String getSezione (){
+        return this.sezione;
+    }
+       
+    public int getNMaterie (){
+        return this.nmaterie;
+    }
+        
+    public int[] getVotiFinali() {
+        return this.votifinali;
+    }
+        
+    public String toString() {
+        return "nome=" + nome + ", cognome=" + cognome + ", anno=" + anno + ", indirizzo=" + indirizzo + ", sezione=" + sezione + ", nmaterie=" + nmaterie + ", votifinali=" + votifinali;
+    }
     
+    /**
+     * Assegna l'array di voti finali allo studente
+     */
+    public boolean assegnaVoti(int v) {
+        if(this.votifinali.length > this.nmaterie ){
+            return false;
+        }
+        else{
+            this.votifinali.length = v;
+            return true;
+        }
+    }
+    
+     
             
             
             
