@@ -65,27 +65,108 @@ public class Studente {
         return this.votifinali;
     }
         
+    @Override
     public String toString() {
         return "nome=" + nome + ", cognome=" + cognome + ", anno=" + anno + ", indirizzo=" + indirizzo + ", sezione=" + sezione + ", nmaterie=" + nmaterie + ", votifinali=" + votifinali;
+        
     }
     
     /**
-     * Assegna l'array di voti finali allo studente
+     * questa funzione mi permette di inserire i voti
+     * @param v
+     * @return 
      */
-    public boolean assegnaVoti(int v) {
-        if(this.votifinali.length > this.nmaterie ){
-            return false;
+    public boolean AssegnaVoti(int v){
+        if (v < 1 && v > 11) return false;
+        for (int i = 0; i < votifinali.length; i++){
+            if(votifinali[i] == 0){
+                votifinali[i] = v;
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * Questa funzione mi permette di calcolare la mia media, se ovviamente ci sono i voti
+     * @return 
+     */
+    public int MediaCalcolata (){
+        int a = 0;
+        if (votifinali.length == 0){
+            return -1;
         }
         else{
-            this.votifinali.length = v;
-            return true;
+            for(int i = 0; i < votifinali.length; i++){
+                a =+ votifinali[i];
+            }
+            return (a/votifinali.length);
         }
     }
     
-     
-            
-            
-            
-            
-            
+    /**
+     * Quesat funzione mi permette di trovare il voto più alto tra tutti i voti che controllo nella lista
+     * @return 
+     */
+    public int VotoMassimo (){
+        int a = -999;
+        if (votifinali.length == 0){
+            return -1;
+        }
+        else{
+            for(int i = 0; i < votifinali.length; i++){
+                if (a < votifinali.length) a = votifinali[i];
+            }
+            return a;
+        }
+    }
+    
+    /**
+     * Questa funzione mi permette di trovare il voto più basso tra tutti i voti che controllo nella lista
+     * @return 
+     */
+    public int VotoMinimo (){
+        int a = 1000;
+        if (votifinali.length == 0){
+            return -1;
+        }
+        else{
+            for(int i = 0; i < votifinali.length; i++){
+                if (a > votifinali.length) a = votifinali[i];
+            }
+            return a;
+        }
+    }
+    
+    /**
+     * Questa funziome mi dice quanti voti sono insufficenti(ovvero minore di 6) sull'array
+     * @return 
+     */
+    public int VotiInsufficenti (){
+        int a = 0;
+        if (votifinali.length == 0){
+            return -1;
+        }
+        else{
+            for(int i = 0; i < votifinali.length; i++){
+                if (votifinali.length < 6) a++;
+            }
+            return a;
+        }
+    }
+    
+    /**
+     * Questa funzione mi dice se la media che ho calcolata e sufficente, -1 non esiste la media, 0 sufficente, 1 insufficente
+     * @return 
+     */
+    public int MediaSufficente (){
+       if (MediaCalcolata() == -1){
+           return -1;
+       }
+       else if (MediaCalcolata() >= 6){
+           return 0;
+       }
+       else return 1;
+    }
+    
 }
