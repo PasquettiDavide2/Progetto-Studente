@@ -1,9 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pasquettidavidestudente;
-
+import java.util.*;
 /**
  *
  * @author pasquetti.davide
@@ -67,7 +63,7 @@ public class Studente {
         
     @Override
     public String toString() {
-        return "nome=" + nome + ", cognome=" + cognome + ", anno=" + anno + ", indirizzo=" + indirizzo + ", sezione=" + sezione + ", nmaterie=" + nmaterie + ", votifinali=" + votifinali;
+        return "nome=" + nome + ", cognome=" + cognome + ", anno=" + anno + ", indirizzo=" + indirizzo + ", sezione=" + sezione + ", nmaterie=" + nmaterie + ", votifinali=" + Arrays.toString(votifinali);
         
     }
     
@@ -76,7 +72,8 @@ public class Studente {
      * @param v
      * @return 
      */
-    public boolean AssegnaVoti(int v){
+    public boolean AssegnaVoti(){
+        int v = 0;
         if (v < 1 && v > 11) return false;
         for (int i = 0; i < votifinali.length; i++){
             if(votifinali[i] == 0){

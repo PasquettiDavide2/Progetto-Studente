@@ -23,10 +23,13 @@ public class TestStudente {
         
         Studente p = new Studente(nome,cognome,anno,indirizzo,sezione,nmaterie);
         System.out.println(p.toString());
-        System.out.println(p.toString());
-        System.out.println(p.toString());
-        System.out.println(p.toString());
-        System.out.println(p.toString());
+        System.out.println(p.AssegnaVoti());
+        System.out.println(p.MediaCalcolata());
+        System.out.println(p.MediaSufficente());
+        System.out.println(p.VotiInsufficenti());
+        System.out.println(p.VotoMassimo());
+        System.out.println(p.VotoMinimo());
+        System.out.println(p.VotiInsufficenti());
     }
     
 }
