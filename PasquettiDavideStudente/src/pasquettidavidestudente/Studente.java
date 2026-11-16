@@ -72,8 +72,7 @@ public class Studente {
      * @param v
      * @return 
      */
-    public boolean AssegnaVoti(){
-        int v = 0;
+    public boolean AssegnaVoti(int v){
         if (v < 1 && v > 11) return false;
         for (int i = 0; i < votifinali.length; i++){
             if(votifinali[i] == 0){
@@ -95,7 +94,7 @@ public class Studente {
         }
         else{
             for(int i = 0; i < votifinali.length; i++){
-                a =+ votifinali[i];
+                a += votifinali[i];
             }
             return (a/votifinali.length);
         }
